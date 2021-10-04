@@ -1,2 +1,2 @@
-# useRegistration-react-nextjs
-Use Registration React NextJS
+# registration-react-nextjs
+Registration React NextJS
