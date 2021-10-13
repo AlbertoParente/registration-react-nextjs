@@ -1,6 +1,7 @@
 import Layout from '../components/Layout'
 import Table from '../components/Table'
 import Client from '../core/Client'
+import Button from '../components/Button'
 
 export default function Home() {
   const clients = [
@@ -25,6 +26,9 @@ export default function Home() {
     text-white
     `}>
       <Layout title="Simple Registration">
+        <div className="flex justify-end">
+          <Button color="blue" className="mb-4">New Client</Button>
+        </div>
         <Table clients={clients} 
           clientSelected={clientSelected}
           clientDeleted={clientDeleted} />
