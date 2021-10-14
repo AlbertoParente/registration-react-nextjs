@@ -2,6 +2,7 @@ import Layout from '../components/Layout'
 import Table from '../components/Table'
 import Client from '../core/Client'
 import Button from '../components/Button'
+import Formulary from '../components/Formulary'
 
 export default function Home() {
   const clients = [
@@ -33,6 +34,7 @@ export default function Home() {
           clientSelected={clientSelected}
           clientDeleted={clientDeleted} />
       </Layout>
+      <Formulary />
     </div>
   )
 }
