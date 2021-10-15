@@ -1,13 +1,33 @@
+import { useState } from 'react'
+import Client from "../core/Client"
+import Button from './Button'
 import Input from './Input'
 
 interface FormularyToProps {
-
+    client: Client
 }
 
+
 export default function Formulary(props: FormularyToProps) {
+    const id = props.client?.id
+    const [name, setName] = useState(props.client?.name ?? '')
+    const [age, setAge] = useState(props.client?.age ?? 0)
+
     return (
         <div>
-            <Input text="name" value="test"  />
+            {id ? (
+                <Input readToOnly text="Code" value={id} className="mb-5" />
+            ) : false}
+            <Input text="name" value={name}  newValue={setName} className="mb-5" />
+            <Input text="Age" type="number" value={age}  newValue={setAge} />
+            <div className="flex justify-end mt-7">
+                <Button color="blue" className="mr-2" >
+                    {id ? 'Alter' : 'Save'}
+                </Button>
+                <Button>
+                    Cancel
+                </Button>
+            </div>
         </div>
     )
 }

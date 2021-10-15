@@ -34,7 +34,7 @@ export default function Home() {
           clientSelected={clientSelected}
           clientDeleted={clientDeleted} />
       </Layout>
-      <Formulary />
+      <Formulary client={clients[1]}></Formulary>
     </div>
   )
 }
