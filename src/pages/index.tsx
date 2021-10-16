@@ -6,6 +6,9 @@ import Formulary from '../components/Formulary'
 import { useState } from 'react'
 
 export default function Home() {
+  const [client, setClient] = useState<Client>(Client.empty())
+  const [visible, setVisible] = useState<'table' | 'form'>('table')
+
   const clients = [
     new Client('Alberto', 29, '1'),
     new Client('Juliana', 25, '2'),
@@ -14,7 +17,8 @@ export default function Home() {
   ]
 
   function clientSelected(client: Client) {
-
+    setClient(client)
+    setVisible('form')
   }
 
   function clientDeleted(client: Client) {
@@ -22,10 +26,13 @@ export default function Home() {
   }
 
   function saveClient(client: Client) {
-
+    setVisible('table')
   }
 
-  const [invisible, setInvisible] = useState<'table' | 'form'>('table')
+  function newClient() {
+    setClient(Client.empty())
+    setVisible('form')
+  }
 
   return (
     <div className={`
@@ -34,11 +41,11 @@ export default function Home() {
     text-white
     `}>
       <Layout title="Simple Registration">
-        {invisible === 'table' ? (
+        {visible === 'table' ? (
           <>
             <div className="flex justify-end">
-              <Button color="blue" className="mb-4"
-                onClick={() => setInvisible('form')}>
+              <Button color="green" className="mb-4"
+                onClick={newClient}>
                 New Client
               </Button>
             </div>
@@ -47,9 +54,9 @@ export default function Home() {
               clientDeleted={clientDeleted} />
           </>
         ) : (
-          <Formulary client={clients[1]}
+          <Formulary client={client}
           clientChanged={saveClient}
-            cancel={() => setInvisible('table')}
+            cancel={() => setVisible('table')}
           />
         )}
       </Layout>
