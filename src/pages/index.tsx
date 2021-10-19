@@ -3,35 +3,44 @@ import Table from '../components/Table'
 import Client from '../core/Client'
 import Button from '../components/Button'
 import Formulary from '../components/Formulary'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import ClientRepository from '../core/ClientRepository'
+import CollectionClient from '../firebase/db/CollectionClient'
 
 export default function Home() {
+
+  const repository: ClientRepository = new CollectionClient()
   const [client, setClient] = useState<Client>(Client.empty())
+  const [clients, setClients] = useState<Client[]>([])
   const [visible, setVisible] = useState<'table' | 'form'>('table')
 
-  const clients = [
-    new Client('Alberto', 29, '1'),
-    new Client('Juliana', 25, '2'),
-    new Client('Julia', 1, '3'),
-    new Client('Alice', 2, '4'),
-  ]
+  useEffect(getAll, [])
+  
+  function getAll() {
+    repository.getAll().then(clients => {
+      setClients(clients)
+      setVisible('table')
+    })
+  }
 
   function clientSelected(client: Client) {
     setClient(client)
     setVisible('form')
   }
 
-  function clientDeleted(client: Client) {
-
-  }
-
-  function saveClient(client: Client) {
-    setVisible('table')
+  async function clientDeleted(client: Client) {
+    await repository.delete(client)
+    getAll()
   }
 
   function newClient() {
     setClient(Client.empty())
     setVisible('form')
+  }
+  
+  async function saveClient(client: Client) {
+    await repository.save(client)
+    getAll()
   }
 
   return (
