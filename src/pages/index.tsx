@@ -5,7 +5,6 @@ import Formulary from '../components/Formulary'
 import useClients from '../hooks/useClients'
 
 export default function Home() {
-
   const { client, clients, newClient, saveClient, deletedClient, selectedClient, getAll, showTable, showForm } = useClients()
 
   return (

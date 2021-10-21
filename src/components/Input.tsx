@@ -13,7 +13,7 @@ export default function Input(props: InputToProps) {
             <label className="mb-2">
                 {props.text}
             </label>
-            <input type={props.type ?? 'text'} 
+            <input type={props.type ?? 'text'}
                 value={props.value}
                 readOnly={props.readToOnly}
                 onChange={e => props.newValue?.(e.target.value)}
