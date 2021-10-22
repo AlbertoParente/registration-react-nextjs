@@ -23,7 +23,8 @@ export default function Formulary(props: FormularyToProps) {
             <Input text="name" value={name} newValue={setName} className="mb-5" />
             <Input text="Age" type="number" value={age} newValue={setAge} />
             <div className="flex justify-end mt-7">
-                <Button color="blue" className="mr-2" onClick={() => props.clientChanged?.(new Client(name, +age, id))} >
+                <Button color="blue" className="mr-2"
+                    onClick={() => props.clientChanged?.(new Client(name, +age, id))} >
                     {id ? 'Alter' : 'Save'}
                 </Button>
                 <Button onClick={props.cancel}>

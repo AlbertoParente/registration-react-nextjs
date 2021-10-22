@@ -11,7 +11,8 @@ export default class CollectionClient implements ClientRepository {
                 age: client.age
             }
         },
-        fromFirestore(snapshot: firebase.firestore.QueryDocumentSnapshot, options: firebase.firestore.SnapshotOptions): Client {
+        fromFirestore(snapshot: firebase.firestore.QueryDocumentSnapshot,
+            options: firebase.firestore.SnapshotOptions): Client {
             const dados = snapshot.data(options)
 
             return new Client(dados.name, dados.age, snapshot.id)
@@ -42,6 +43,7 @@ export default class CollectionClient implements ClientRepository {
     }
 
     private collection() {
-        return firebase.firestore().collection('clients').withConverter(this.#conversor)
+        return firebase.firestore().collection('clients')
+            .withConverter(this.#conversor)
     }
 }

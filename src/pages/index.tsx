@@ -5,13 +5,21 @@ import Formulary from '../components/Formulary'
 import useClients from '../hooks/useClients'
 
 export default function Home() {
-  const { client, clients, newClient, saveClient, deletedClient, selectedClient, getAll, showTable, showForm } = useClients()
+  const {
+    client,
+    clients,
+    newClient,
+    saveClient,
+    deletedClient,
+    selectedClient,
+    getAll,
+    showTable,
+    showForm } = useClients()
 
   return (
-    <div className={`
-    flex h-screen justify-center items-center
-    bg-gradient-to-r from-purple-500 to-blue-600
-    text-white
+    <div className={`flex h-screen justify-center 
+      items-center bg-gradient-to-r from-purple-500 
+      to-blue-600 text-white
     `}>
       <Layout title="Simple Registration">
         {showTable ? (

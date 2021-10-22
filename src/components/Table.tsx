@@ -39,20 +39,20 @@ export default function Table(props: TableProps) {
         return (
             <td className="flex justify-center">
                 {props.clientSelected ? (
-                    <button onClick={() => props.clientSelected?.(client)} className={`
-                    flex justify-center items-center
-                    text-green-600 rounded-full p-2
-                    m-1 houver:bg-purple-50
+                    <button onClick={() => props.clientSelected?.(client)}
+                        className={`flex justify-center items-center
+                        text-green-600 rounded-full p-2
+                        m-1 houver:bg-purple-50
                 `}>
                         {EditIcon}
                     </button>
 
                 ) : false}
                 {props.clientDeleted ? (
-                    <button onClick={() => props.clientDeleted?.(client)} className={`
-                    flex justify-center items-center
-                    text-red-500 rounded-full p-2
-                    m-1 houver:bg-purple-50
+                    <button onClick={() => props.clientDeleted?.(client)}
+                        className={`flex justify-center items-center
+                        text-red-500 rounded-full p-2
+                        m-1 houver:bg-purple-50
                 `}>
                         {DeleteIcon}
                     </button>
@@ -63,9 +63,8 @@ export default function Table(props: TableProps) {
 
     return (
         <table className="w-full rounded-xl overflow-hidden">
-            <thead className={`
-                text-gray-100
-                bg-gradient-to-r from-purple-500 to-purple-800
+            <thead className={`text-gray-100 bg-gradient-to-r 
+                from-purple-500 to-purple-800
             `}>
                 {renderHeader()}
             </thead>

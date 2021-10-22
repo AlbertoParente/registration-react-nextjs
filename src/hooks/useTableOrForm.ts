@@ -5,7 +5,6 @@ export default function UseTableOrForm() {
     const showTable = () => setVisible('table')
     const showForm = () => setVisible('form')
 
-
     return {
         tableOfVisible: visible === 'table',
         formOfVisible: visible === 'form',

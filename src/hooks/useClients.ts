@@ -6,7 +6,7 @@ import UseTableOrForm from "./useTableOrForm"
 
 export default function useClients() {
     const repository: ClientRepository = new CollectionClient()
-    const { tableOfVisible, formOfVisible, showTable, showForm } = UseTableOrForm()
+    const { showTable, showForm } = UseTableOrForm()
     const [client, setClient] = useState<Client>(Client.empty())
     const [clients, setClients] = useState<Client[]>([])
 
