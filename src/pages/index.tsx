@@ -12,7 +12,6 @@ export default function Home() {
     saveClient,
     deletedClient,
     selectedClient,
-    getAll,
     showTable,
     showForm } = useClients()
 
